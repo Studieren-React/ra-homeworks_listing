@@ -1,6 +1,12 @@
+/**
+ * Если название предложения превышает 50 символов, то необходимо выводить только первые 50 символов, и добавлять символ … в конце.
+ *
+ * @param {(string | undefined)} value Название предложения
+ * @param {number} maxLength Максимальная длина
+ */
 export function truncateString(
   value: string | undefined,
-  maxLength = 50
+  maxLength: number = 50
 ): string | undefined {
   if (value == null) {
     return;

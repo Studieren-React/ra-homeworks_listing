@@ -1,21 +1,31 @@
+import { EGrade } from '../enums';
+
+/**
+ * Вывести остаток, подсветив его в зависимости от количества, используя класс level-*:
+ *     level-low — если остаток меньше 10 включительно;
+ *     level-medium — если остаток меньше 20 включительно;
+ *     level-high — если остаток больше 20.
+ *
+ * @param {(number | undefined)} quantity Доступное количество
+ */
 export function quantityLevel(quantity: number | undefined): string {
   const level = 'level';
-  let grade = '';
+  let grade = undefined;
 
-  if (!quantity) {
+  if (quantity == null) {
     return level;
   }
 
   if (quantity! <= 10) {
-    grade = 'low';
+    grade = EGrade.Low;
   }
 
   if (quantity! <= 20) {
-    grade = 'medium';
+    grade = EGrade.Medium;
   }
 
   if (quantity! > 20) {
-    grade = 'high';
+    grade = EGrade.High;
   }
 
   return `${level}-${grade}`;
